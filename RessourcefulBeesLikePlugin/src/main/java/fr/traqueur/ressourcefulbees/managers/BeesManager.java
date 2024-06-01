@@ -1,18 +1,17 @@
 package fr.traqueur.ressourcefulbees.managers;
 
-import fr.traqueur.ressourcefulbees.api.models.RessourcefulBeeEntity;
 import fr.traqueur.ressourcefulbees.RessourcefulBeesLikePlugin;
 import fr.traqueur.ressourcefulbees.api.RessourcefulBeesLikeAPI;
 import fr.traqueur.ressourcefulbees.api.adapters.persistents.BeeTypePersistentDataType;
 import fr.traqueur.ressourcefulbees.api.managers.IBeeTypeManager;
 import fr.traqueur.ressourcefulbees.api.managers.IBeesManager;
 import fr.traqueur.ressourcefulbees.api.models.IBeeType;
+import fr.traqueur.ressourcefulbees.api.models.RessourcefulBeeEntity;
 import fr.traqueur.ressourcefulbees.api.utils.Keys;
 import fr.traqueur.ressourcefulbees.commands.BeeCommand;
 import fr.traqueur.ressourcefulbees.commands.api.CommandManager;
 import fr.traqueur.ressourcefulbees.listeners.BeeListener;
 import net.kyori.adventure.text.Component;
-import net.minecraft.world.entity.EntityType;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_20_R3.CraftWorld;

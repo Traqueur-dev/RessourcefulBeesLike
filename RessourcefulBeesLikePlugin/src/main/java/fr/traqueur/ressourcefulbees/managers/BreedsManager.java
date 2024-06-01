@@ -1,7 +1,6 @@
 package fr.traqueur.ressourcefulbees.managers;
 
 import fr.traqueur.ressourcefulbees.RessourcefulBeesLikePlugin;
-import fr.traqueur.ressourcefulbees.api.RessourcefulBeesLike;
 import fr.traqueur.ressourcefulbees.api.RessourcefulBeesLikeAPI;
 import fr.traqueur.ressourcefulbees.api.Saveable;
 import fr.traqueur.ressourcefulbees.api.managers.IBeeTypeManager;

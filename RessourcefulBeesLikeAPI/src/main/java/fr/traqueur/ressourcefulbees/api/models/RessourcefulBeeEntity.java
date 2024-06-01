@@ -1,6 +1,5 @@
 package fr.traqueur.ressourcefulbees.api.models;
 
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.TemptGoal;
 import net.minecraft.world.entity.animal.Bee;
@@ -22,8 +21,9 @@ public class RessourcefulBeeEntity extends Bee {
     @Override
     protected void registerGoals() {
         super.registerGoals();
+        Ingredient ingredient = Ingredient.of(CraftItemStack.asNMSCopy(food));
         this.goalSelector.getAvailableGoals().removeIf(wrappedGoal -> wrappedGoal.getGoal() instanceof TemptGoal);
-        this.goalSelector.addGoal(3, new TemptGoal(this, 1.25D, Ingredient.of(CraftItemStack.asNMSCopy(food)), false));
+        this.goalSelector.addGoal(3, new TemptGoal(this, 1.25D, ingredient, false));
     }
 
     @Override

@@ -4,8 +4,8 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import fr.traqueur.ressourcefulbees.api.managers.IBeeTypeManager;
-import fr.traqueur.ressourcefulbees.api.models.IBeeType;
 import fr.traqueur.ressourcefulbees.api.models.IBee;
+import fr.traqueur.ressourcefulbees.api.models.IBeeType;
 
 import java.io.IOException;
 

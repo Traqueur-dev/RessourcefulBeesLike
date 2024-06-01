@@ -1,6 +1,5 @@
 package fr.traqueur.ressourcefulbees.listeners;
 
-import fr.traqueur.ressourcefulbees.RessourcefulBeesLikePlugin;
 import fr.traqueur.ressourcefulbees.api.events.BeeBreedEvent;
 import fr.traqueur.ressourcefulbees.api.events.BeeSpawnEvent;
 import fr.traqueur.ressourcefulbees.api.managers.IBeeTypeManager;

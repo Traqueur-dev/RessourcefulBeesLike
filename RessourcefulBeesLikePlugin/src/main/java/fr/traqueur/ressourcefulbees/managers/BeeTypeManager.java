@@ -10,7 +10,6 @@ import fr.traqueur.ressourcefulbees.api.utils.BeeLogger;
 import fr.traqueur.ressourcefulbees.api.utils.ConfigKeys;
 import fr.traqueur.ressourcefulbees.api.utils.Keys;
 import fr.traqueur.ressourcefulbees.models.BeeTypes;
-import fr.traqueur.ressourcefulbees.models.Breed;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Bee;

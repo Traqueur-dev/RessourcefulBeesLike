@@ -2,13 +2,13 @@ package fr.traqueur.ressourcefulbees.managers;
 
 import fr.traqueur.ressourcefulbees.RessourcefulBeesLikePlugin;
 import fr.traqueur.ressourcefulbees.api.Saveable;
+import fr.traqueur.ressourcefulbees.api.adapters.persistents.BeePersistentDataType;
 import fr.traqueur.ressourcefulbees.api.adapters.persistents.BeeTypePersistentDataType;
 import fr.traqueur.ressourcefulbees.api.events.BeeSpawnEvent;
 import fr.traqueur.ressourcefulbees.api.managers.IBeeTypeManager;
 import fr.traqueur.ressourcefulbees.api.managers.IToolsManager;
-import fr.traqueur.ressourcefulbees.api.adapters.persistents.BeePersistentDataType;
-import fr.traqueur.ressourcefulbees.api.models.IBeeType;
 import fr.traqueur.ressourcefulbees.api.models.IBee;
+import fr.traqueur.ressourcefulbees.api.models.IBeeType;
 import fr.traqueur.ressourcefulbees.api.utils.ConfigKeys;
 import fr.traqueur.ressourcefulbees.api.utils.Constants;
 import fr.traqueur.ressourcefulbees.api.utils.Keys;
