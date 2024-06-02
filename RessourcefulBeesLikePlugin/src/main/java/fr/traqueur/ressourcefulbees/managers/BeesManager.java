@@ -6,7 +6,7 @@ import fr.traqueur.ressourcefulbees.api.adapters.persistents.BeeTypePersistentDa
 import fr.traqueur.ressourcefulbees.api.managers.IBeeTypeManager;
 import fr.traqueur.ressourcefulbees.api.managers.IBeesManager;
 import fr.traqueur.ressourcefulbees.api.models.IBeeType;
-import fr.traqueur.ressourcefulbees.api.models.RessourcefulBeeEntity;
+import fr.traqueur.ressourcefulbees.api.entity.RessourcefulBeeEntity;
 import fr.traqueur.ressourcefulbees.api.utils.Keys;
 import fr.traqueur.ressourcefulbees.commands.BeeCommand;
 import fr.traqueur.ressourcefulbees.commands.api.CommandManager;
