@@ -2,7 +2,7 @@ package fr.traqueur.ressourcefulbees.api.models;
 
 import org.bukkit.Material;
 
-public interface IBeeType {
+public interface BeeType {
 
     String getType();
 

@@ -4,8 +4,8 @@ import fr.traqueur.ressourcefulbees.RessourcefulBeesLikePlugin;
 import fr.traqueur.ressourcefulbees.api.RessourcefulBeesLikeAPI;
 import fr.traqueur.ressourcefulbees.api.Saveable;
 import fr.traqueur.ressourcefulbees.api.adapters.persistents.BeeTypePersistentDataType;
-import fr.traqueur.ressourcefulbees.api.managers.IBeeTypeManager;
-import fr.traqueur.ressourcefulbees.api.models.IBeeType;
+import fr.traqueur.ressourcefulbees.api.managers.BeeTypeManager;
+import fr.traqueur.ressourcefulbees.api.models.BeeType;
 import fr.traqueur.ressourcefulbees.api.utils.BeeLogger;
 import fr.traqueur.ressourcefulbees.api.utils.ConfigKeys;
 import fr.traqueur.ressourcefulbees.api.utils.Keys;
@@ -22,25 +22,25 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
-public class BeeTypeManager implements IBeeTypeManager, Saveable {
+public class RessourcefulBeeTypeManager implements BeeTypeManager, Saveable {
 
     private final RessourcefulBeesLikePlugin plugin;
-    private final Map<String, IBeeType> beeTypes;
+    private final Map<String, BeeType> beeTypes;
 
-    public BeeTypeManager(RessourcefulBeesLikePlugin plugin) {
+    public RessourcefulBeeTypeManager(RessourcefulBeesLikePlugin plugin) {
         this.plugin = plugin;
         this.beeTypes = new HashMap<>();
     }
 
-    public void registerBeeType(IBeeType IBeeType) {
-        this.beeTypes.put(IBeeType.getType().toLowerCase(), IBeeType);
+    public void registerBeeType(BeeType BeeType) {
+        this.beeTypes.put(BeeType.getType().toLowerCase(), BeeType);
     }
 
-    public IBeeType getBeeType(String type) {
+    public BeeType getBeeType(String type) {
         return this.beeTypes.getOrDefault(type.toLowerCase(), null);
     }
 
-    public IBeeType getBeeTypeFromBee(Bee bee) {
+    public BeeType getBeeTypeFromBee(Bee bee) {
         PersistentDataContainer container = bee.getPersistentDataContainer();
         if(!container.has(Keys.BEE)) {
             return this.getBeeType("normal_bee");
@@ -48,7 +48,7 @@ public class BeeTypeManager implements IBeeTypeManager, Saveable {
         return container.get(Keys.BEE_TYPE, BeeTypePersistentDataType.INSTANCE);
     }
 
-    public Map<String, IBeeType> getBeeTypes() {
+    public Map<String, BeeType> getBeeTypes() {
         return beeTypes;
     }
 
@@ -70,7 +70,7 @@ public class BeeTypeManager implements IBeeTypeManager, Saveable {
             String type = (String) map.get(ConfigKeys.TYPE);
             String name = (String) map.get(ConfigKeys.NAME);
             Material food = Material.valueOf((String) map.get(ConfigKeys.FOOD));
-            this.beeTypes.put(type, new IBeeType() {
+            this.beeTypes.put(type, new BeeType() {
                 @Override
                 public String getType() {
                     return type;

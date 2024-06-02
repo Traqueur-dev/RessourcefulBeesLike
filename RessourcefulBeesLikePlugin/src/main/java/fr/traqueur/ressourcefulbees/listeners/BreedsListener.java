@@ -2,10 +2,10 @@ package fr.traqueur.ressourcefulbees.listeners;
 
 import fr.traqueur.ressourcefulbees.api.events.BeeBreedEvent;
 import fr.traqueur.ressourcefulbees.api.events.BeeSpawnEvent;
-import fr.traqueur.ressourcefulbees.api.managers.IBeeTypeManager;
-import fr.traqueur.ressourcefulbees.api.managers.IBreedsManager;
-import fr.traqueur.ressourcefulbees.api.models.IBeeType;
-import fr.traqueur.ressourcefulbees.api.models.IBreed;
+import fr.traqueur.ressourcefulbees.api.managers.BeeTypeManager;
+import fr.traqueur.ressourcefulbees.api.managers.BreedsManager;
+import fr.traqueur.ressourcefulbees.api.models.BeeType;
+import fr.traqueur.ressourcefulbees.api.models.Breed;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Bee;
 import org.bukkit.event.EventHandler;
@@ -14,12 +14,12 @@ import org.bukkit.event.entity.EntityBreedEvent;
 
 public class BreedsListener implements Listener {
 
-    private final IBreedsManager breedsManager;
-    private final IBeeTypeManager beeTypeManager;
+    private final BreedsManager breedsManager;
+    private final BeeTypeManager beeTypeManager;
 
-    public BreedsListener(IBreedsManager manager) {
+    public BreedsListener(BreedsManager manager) {
         this.breedsManager = manager;
-        this.beeTypeManager = manager.getPlugin().getManager(IBeeTypeManager.class);
+        this.beeTypeManager = manager.getPlugin().getManager(BeeTypeManager.class);
     }
 
     @EventHandler
@@ -32,10 +32,10 @@ public class BreedsListener implements Listener {
         Bee mother = (Bee) event.getMother();
         event.getEntity().remove();
 
-        IBeeType fatherType = beeTypeManager.getBeeTypeFromBee(father);
-        IBeeType motherType = beeTypeManager.getBeeTypeFromBee(mother);
-        IBreed breed = breedsManager.getBreed(fatherType, motherType);
-        IBeeType childType;
+        BeeType fatherType = beeTypeManager.getBeeTypeFromBee(father);
+        BeeType motherType = beeTypeManager.getBeeTypeFromBee(mother);
+        Breed breed = breedsManager.getBreed(fatherType, motherType);
+        BeeType childType;
 
         double random = Math.random();
         if(breed == null || random > breed.getPercent()) {

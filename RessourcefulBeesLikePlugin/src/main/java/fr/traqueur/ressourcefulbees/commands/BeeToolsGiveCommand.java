@@ -1,6 +1,6 @@
 package fr.traqueur.ressourcefulbees.commands;
 
-import fr.traqueur.ressourcefulbees.api.managers.IToolsManager;
+import fr.traqueur.ressourcefulbees.api.managers.ToolsManager;
 import fr.traqueur.ressourcefulbees.api.utils.Permissions;
 import fr.traqueur.ressourcefulbees.commands.api.Command;
 import fr.traqueur.ressourcefulbees.commands.api.arguments.Arguments;
@@ -13,9 +13,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class BeeToolsGiveCommand extends Command {
 
-    private final IToolsManager manager;
+    private final ToolsManager manager;
 
-    public BeeToolsGiveCommand(JavaPlugin plugin, IToolsManager manager) {
+    public BeeToolsGiveCommand(JavaPlugin plugin, ToolsManager manager) {
         super(plugin, "bee.tools.give");
         this.manager = manager;
 

@@ -1,8 +1,8 @@
 package fr.traqueur.ressourcefulbees.api.models;
 
-public interface IBee {
+public interface Bee {
 
-    IBeeType getBeeType();
+    BeeType getBeeType();
 
     boolean isBaby();
 

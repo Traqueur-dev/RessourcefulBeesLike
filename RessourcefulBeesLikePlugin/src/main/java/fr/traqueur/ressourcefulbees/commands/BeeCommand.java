@@ -1,7 +1,7 @@
 package fr.traqueur.ressourcefulbees.commands;
 
-import fr.traqueur.ressourcefulbees.api.managers.IBeesManager;
-import fr.traqueur.ressourcefulbees.api.models.IBeeType;
+import fr.traqueur.ressourcefulbees.api.managers.BeesManager;
+import fr.traqueur.ressourcefulbees.api.models.BeeType;
 import fr.traqueur.ressourcefulbees.api.utils.Permissions;
 import fr.traqueur.ressourcefulbees.commands.api.Command;
 import fr.traqueur.ressourcefulbees.commands.api.arguments.Arguments;
@@ -14,9 +14,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class BeeCommand extends Command {
 
-    private final IBeesManager manager;
+    private final BeesManager manager;
 
-    public BeeCommand(JavaPlugin plugin, IBeesManager manager) {
+    public BeeCommand(JavaPlugin plugin, BeesManager manager) {
         super(plugin, "bee.give");
         this.manager = manager;
 
@@ -29,7 +29,7 @@ public class BeeCommand extends Command {
     @Override
     public void execute(CommandSender sender, Arguments args) {
         Player player = (Player) sender;
-        IBeeType name = args.get("name");
+        BeeType name = args.get("name");
 
         ItemStack beeSpawnEgg = this.manager.generateBeeSpawnEgg(name);
         player.getInventory().addItem(beeSpawnEgg);

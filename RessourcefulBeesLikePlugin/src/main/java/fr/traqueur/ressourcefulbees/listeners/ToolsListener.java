@@ -2,7 +2,7 @@ package fr.traqueur.ressourcefulbees.listeners;
 
 import fr.traqueur.ressourcefulbees.api.events.BeeCatchEvent;
 import fr.traqueur.ressourcefulbees.api.events.BeeReleaseEvent;
-import fr.traqueur.ressourcefulbees.api.managers.IToolsManager;
+import fr.traqueur.ressourcefulbees.api.managers.ToolsManager;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Bukkit;
@@ -21,10 +21,10 @@ import org.bukkit.inventory.ItemStack;
 
 public class ToolsListener implements Listener {
 
-    private final IToolsManager manager;
+    private final ToolsManager manager;
     private boolean isEntityInteraction;
 
-    public ToolsListener(IToolsManager manager) {
+    public ToolsListener(ToolsManager manager) {
         this.manager = manager;
         this.isEntityInteraction = false;
     }

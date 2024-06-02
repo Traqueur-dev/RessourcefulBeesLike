@@ -1,6 +1,6 @@
 package fr.traqueur.ressourcefulbees.api.events;
 
-import fr.traqueur.ressourcefulbees.api.models.IBeeType;
+import fr.traqueur.ressourcefulbees.api.models.BeeType;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
@@ -21,29 +21,29 @@ public class BeeBreedEvent extends Event implements Cancellable {
 
     private boolean cancel = false;
 
-    private final IBeeType fatherType;
-    private final IBeeType motherType;
-    private IBeeType childType;
+    private final BeeType fatherType;
+    private final BeeType motherType;
+    private BeeType childType;
 
-    public BeeBreedEvent(IBeeType fatherType, IBeeType motherType, IBeeType childType) {
+    public BeeBreedEvent(BeeType fatherType, BeeType motherType, BeeType childType) {
         this.fatherType = fatherType;
         this.motherType = motherType;
         this.childType = childType;
     }
 
-    public IBeeType getFatherType() {
+    public BeeType getFatherType() {
         return fatherType;
     }
 
-    public IBeeType getMotherType() {
+    public BeeType getMotherType() {
         return motherType;
     }
 
-    public IBeeType getChildType() {
+    public BeeType getChildType() {
         return childType;
     }
 
-    public void setChildType(IBeeType childType) {
+    public void setChildType(BeeType childType) {
         this.childType = childType;
     }
 

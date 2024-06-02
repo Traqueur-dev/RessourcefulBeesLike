@@ -5,7 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Bee;
 import org.bukkit.inventory.ItemStack;
 
-public interface IToolsManager {
+public interface ToolsManager {
 
     ItemStack generateBeeBox();
 

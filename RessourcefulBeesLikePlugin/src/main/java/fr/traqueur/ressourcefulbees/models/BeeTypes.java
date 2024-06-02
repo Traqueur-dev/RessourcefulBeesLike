@@ -1,9 +1,9 @@
 package fr.traqueur.ressourcefulbees.models;
 
-import fr.traqueur.ressourcefulbees.api.models.IBeeType;
+import fr.traqueur.ressourcefulbees.api.models.BeeType;
 import org.bukkit.Material;
 
-public enum BeeTypes implements IBeeType {
+public enum BeeTypes implements BeeType {
 
         NORMAL_BEE("Bee", Material.POPPY),
         DIRT_BEE("Dirt Bee", Material.DIRT),

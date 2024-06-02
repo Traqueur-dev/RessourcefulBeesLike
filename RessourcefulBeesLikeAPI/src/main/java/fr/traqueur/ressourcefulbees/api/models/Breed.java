@@ -2,12 +2,12 @@ package fr.traqueur.ressourcefulbees.api.models;
 
 import fr.traqueur.ressourcefulbees.api.Tuple;
 
-public interface IBreed {
+public interface Breed {
 
-    Tuple<IBeeType, IBeeType> getParents();
+    Tuple<BeeType, BeeType> getParents();
 
     double getPercent();
 
-    IBeeType getChild();
+    BeeType getChild();
 
 }

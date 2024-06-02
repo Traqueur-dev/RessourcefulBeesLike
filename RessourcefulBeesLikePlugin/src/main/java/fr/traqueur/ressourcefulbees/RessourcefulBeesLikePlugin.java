@@ -2,18 +2,18 @@ package fr.traqueur.ressourcefulbees;
 
 import fr.traqueur.ressourcefulbees.api.RessourcefulBeesLike;
 import fr.traqueur.ressourcefulbees.api.Saveable;
-import fr.traqueur.ressourcefulbees.api.managers.IBeeTypeManager;
-import fr.traqueur.ressourcefulbees.api.managers.IBeesManager;
-import fr.traqueur.ressourcefulbees.api.managers.IBreedsManager;
-import fr.traqueur.ressourcefulbees.api.managers.IToolsManager;
-import fr.traqueur.ressourcefulbees.api.models.IBeeType;
+import fr.traqueur.ressourcefulbees.api.managers.BeeTypeManager;
+import fr.traqueur.ressourcefulbees.api.managers.BeesManager;
+import fr.traqueur.ressourcefulbees.api.managers.BreedsManager;
+import fr.traqueur.ressourcefulbees.api.managers.ToolsManager;
+import fr.traqueur.ressourcefulbees.api.models.BeeType;
 import fr.traqueur.ressourcefulbees.api.utils.BeeLogger;
 import fr.traqueur.ressourcefulbees.commands.api.CommandManager;
 import fr.traqueur.ressourcefulbees.commands.arguments.BeeTypeArgument;
-import fr.traqueur.ressourcefulbees.managers.BeeTypeManager;
-import fr.traqueur.ressourcefulbees.managers.BeesManager;
-import fr.traqueur.ressourcefulbees.managers.BreedsManager;
-import fr.traqueur.ressourcefulbees.managers.ToolsManager;
+import fr.traqueur.ressourcefulbees.managers.RessourcefulBeeTypeManager;
+import fr.traqueur.ressourcefulbees.managers.RessourcefulBeesManager;
+import fr.traqueur.ressourcefulbees.managers.RessourcefulBreedsManager;
+import fr.traqueur.ressourcefulbees.managers.RessourcefulToolsManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.ServicePriority;
 
@@ -36,12 +36,12 @@ public final class RessourcefulBeesLikePlugin extends RessourcefulBeesLike {
     @Override
     public void onEnable() {
 
-        this.registerManager(new BeeTypeManager(this), IBeeTypeManager.class);
-        this.commandManager.registerConverter(IBeeType.class, "beetype", new BeeTypeArgument(this.getManager(IBeeTypeManager.class)));
+        this.registerManager(new RessourcefulBeeTypeManager(this), BeeTypeManager.class);
+        this.commandManager.registerConverter(BeeType.class, "beetype", new BeeTypeArgument(this.getManager(BeeTypeManager.class)));
 
-        this.registerManager(new BeesManager(this), IBeesManager.class);
-        this.registerManager(new ToolsManager(this), IToolsManager.class);
-        this.registerManager(new BreedsManager(this), IBreedsManager.class);
+        this.registerManager(new RessourcefulBeesManager(this), BeesManager.class);
+        this.registerManager(new RessourcefulToolsManager(this), ToolsManager.class);
+        this.registerManager(new RessourcefulBreedsManager(this), BreedsManager.class);
 
         this.saveables.forEach(saveable -> {
             this.saveOrUpdateConfiguration(saveable.getFile(), saveable.getFile());

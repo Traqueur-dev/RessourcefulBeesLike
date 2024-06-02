@@ -4,9 +4,9 @@ import fr.traqueur.ressourcefulbees.RessourcefulBeesLikePlugin;
 import fr.traqueur.ressourcefulbees.api.RessourcefulBeesLikeAPI;
 import fr.traqueur.ressourcefulbees.api.adapters.persistents.BeeTypePersistentDataType;
 import fr.traqueur.ressourcefulbees.api.entity.RessourcefulBeeEntity;
-import fr.traqueur.ressourcefulbees.api.managers.IBeeTypeManager;
-import fr.traqueur.ressourcefulbees.api.managers.IBeesManager;
-import fr.traqueur.ressourcefulbees.api.models.IBeeType;
+import fr.traqueur.ressourcefulbees.api.managers.BeeTypeManager;
+import fr.traqueur.ressourcefulbees.api.managers.BeesManager;
+import fr.traqueur.ressourcefulbees.api.models.BeeType;
 import fr.traqueur.ressourcefulbees.api.utils.Keys;
 import fr.traqueur.ressourcefulbees.commands.BeeCommand;
 import fr.traqueur.ressourcefulbees.commands.api.CommandManager;
@@ -22,16 +22,16 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.PluginManager;
 
-public class BeesManager implements IBeesManager {
+public class RessourcefulBeesManager implements BeesManager {
 
     private final RessourcefulBeesLikePlugin plugin;
 
-    public BeesManager(RessourcefulBeesLikePlugin plugin) {
+    public RessourcefulBeesManager(RessourcefulBeesLikePlugin plugin) {
         this.plugin = plugin;
         CommandManager commandManager = plugin.getCommandManager();
         PluginManager pluginManager = plugin.getServer().getPluginManager();
 
-        pluginManager.registerEvents(new BeeListener(this, plugin.getManager(IBeeTypeManager.class)), plugin);
+        pluginManager.registerEvents(new BeeListener(this, plugin.getManager(BeeTypeManager.class)), plugin);
         commandManager.registerCommand(new BeeCommand(plugin, this));
 
 
@@ -41,7 +41,7 @@ public class BeesManager implements IBeesManager {
         return item != null && item.getItemMeta() != null && item.getItemMeta().getPersistentDataContainer().has(Keys.BEE);
     }
 
-    public ItemStack generateBeeSpawnEgg(IBeeType type) {
+    public ItemStack generateBeeSpawnEgg(BeeType type) {
         //generate bee egg with data key with value name
         ItemStack item = new ItemStack(Material.BEE_SPAWN_EGG);
         ItemMeta meta = item.getItemMeta();
@@ -54,7 +54,7 @@ public class BeesManager implements IBeesManager {
     }
 
 
-    public void spawnBee(Location location, IBeeType type, boolean baby) {
+    public void spawnBee(Location location, BeeType type, boolean baby) {
 
         RessourcefulBeeEntity test = new RessourcefulBeeEntity(location.getWorld(), new ItemStack(type.getFood()));
         test.setPos(location.getX(), location.getY() + 1, location.getZ());

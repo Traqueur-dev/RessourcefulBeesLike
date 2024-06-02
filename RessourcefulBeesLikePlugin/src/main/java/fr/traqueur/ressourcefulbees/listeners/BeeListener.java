@@ -2,9 +2,9 @@ package fr.traqueur.ressourcefulbees.listeners;
 
 import fr.traqueur.ressourcefulbees.api.adapters.persistents.BeeTypePersistentDataType;
 import fr.traqueur.ressourcefulbees.api.events.BeeSpawnEvent;
-import fr.traqueur.ressourcefulbees.api.managers.IBeeTypeManager;
-import fr.traqueur.ressourcefulbees.api.managers.IBeesManager;
-import fr.traqueur.ressourcefulbees.api.models.IBeeType;
+import fr.traqueur.ressourcefulbees.api.managers.BeeTypeManager;
+import fr.traqueur.ressourcefulbees.api.managers.BeesManager;
+import fr.traqueur.ressourcefulbees.api.models.BeeType;
 import fr.traqueur.ressourcefulbees.api.utils.Keys;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -24,10 +24,10 @@ import org.bukkit.inventory.ItemStack;
 
 public class BeeListener implements Listener {
 
-    private final IBeesManager manager;
-    private final IBeeTypeManager beeTypeManager;
+    private final BeesManager manager;
+    private final BeeTypeManager beeTypeManager;
 
-    public BeeListener(IBeesManager manager, IBeeTypeManager beeTypeManager) {
+    public BeeListener(BeesManager manager, BeeTypeManager beeTypeManager) {
         this.manager = manager;
         this.beeTypeManager = beeTypeManager;
     }
@@ -71,7 +71,7 @@ public class BeeListener implements Listener {
         if(player.getGameMode() != GameMode.CREATIVE) {
             item.subtract();
         }
-        IBeeType bee = item.getItemMeta().getPersistentDataContainer().getOrDefault(Keys.BEE_TYPE, BeeTypePersistentDataType.INSTANCE, this.beeTypeManager.getBeeType("normal"));
+        BeeType bee = item.getItemMeta().getPersistentDataContainer().getOrDefault(Keys.BEE_TYPE, BeeTypePersistentDataType.INSTANCE, this.beeTypeManager.getBeeType("normal"));
         BeeSpawnEvent beeSpawnEvent = new BeeSpawnEvent(bee,location, baby);
         Bukkit.getPluginManager().callEvent(beeSpawnEvent);
     }
