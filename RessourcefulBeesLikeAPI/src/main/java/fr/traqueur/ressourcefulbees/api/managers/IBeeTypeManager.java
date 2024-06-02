@@ -4,7 +4,7 @@ import fr.traqueur.ressourcefulbees.api.RessourcefulBeesLikeAPI;
 import fr.traqueur.ressourcefulbees.api.models.IBeeType;
 import org.bukkit.entity.Bee;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public interface IBeeTypeManager {
 
@@ -14,7 +14,7 @@ public interface IBeeTypeManager {
 
     IBeeType getBeeTypeFromBee(Bee bee);
 
-    HashMap<String, IBeeType> getBeeTypes();
+    Map<String, IBeeType> getBeeTypes();
 
     RessourcefulBeesLikeAPI getPlugin();
 }

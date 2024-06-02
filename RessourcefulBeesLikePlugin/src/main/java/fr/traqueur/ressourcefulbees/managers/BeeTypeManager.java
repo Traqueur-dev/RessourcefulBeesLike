@@ -25,7 +25,7 @@ import java.util.stream.Stream;
 public class BeeTypeManager implements IBeeTypeManager, Saveable {
 
     private final RessourcefulBeesLikePlugin plugin;
-    private final HashMap<String, IBeeType> beeTypes;
+    private final Map<String, IBeeType> beeTypes;
 
     public BeeTypeManager(RessourcefulBeesLikePlugin plugin) {
         this.plugin = plugin;
@@ -48,7 +48,7 @@ public class BeeTypeManager implements IBeeTypeManager, Saveable {
         return container.get(Keys.BEE_TYPE, BeeTypePersistentDataType.INSTANCE);
     }
 
-    public HashMap<String, IBeeType> getBeeTypes() {
+    public Map<String, IBeeType> getBeeTypes() {
         return beeTypes;
     }
 

@@ -1,6 +1,7 @@
 package fr.traqueur.ressourcefulbees.managers;
 
 import fr.traqueur.ressourcefulbees.RessourcefulBeesLikePlugin;
+import fr.traqueur.ressourcefulbees.api.RessourcefulBeesLikeAPI;
 import fr.traqueur.ressourcefulbees.api.Saveable;
 import fr.traqueur.ressourcefulbees.api.adapters.persistents.BeePersistentDataType;
 import fr.traqueur.ressourcefulbees.api.adapters.persistents.BeeTypePersistentDataType;
@@ -157,7 +158,7 @@ public class ToolsManager implements IToolsManager, Saveable {
     }
 
     @Override
-    public RessourcefulBeesLikePlugin getPlugin() {
+    public RessourcefulBeesLikeAPI getPlugin() {
         return plugin;
     }
 
