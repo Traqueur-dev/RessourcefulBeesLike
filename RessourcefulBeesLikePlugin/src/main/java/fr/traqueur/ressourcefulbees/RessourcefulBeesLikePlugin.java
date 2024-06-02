@@ -2,18 +2,12 @@ package fr.traqueur.ressourcefulbees;
 
 import fr.traqueur.ressourcefulbees.api.RessourcefulBeesLike;
 import fr.traqueur.ressourcefulbees.api.Saveable;
-import fr.traqueur.ressourcefulbees.api.managers.BeeTypeManager;
-import fr.traqueur.ressourcefulbees.api.managers.BeesManager;
-import fr.traqueur.ressourcefulbees.api.managers.BreedsManager;
-import fr.traqueur.ressourcefulbees.api.managers.ToolsManager;
+import fr.traqueur.ressourcefulbees.api.managers.*;
 import fr.traqueur.ressourcefulbees.api.models.BeeType;
 import fr.traqueur.ressourcefulbees.api.utils.BeeLogger;
 import fr.traqueur.ressourcefulbees.commands.api.CommandManager;
 import fr.traqueur.ressourcefulbees.commands.arguments.BeeTypeArgument;
-import fr.traqueur.ressourcefulbees.managers.RessourcefulBeeTypeManager;
-import fr.traqueur.ressourcefulbees.managers.RessourcefulBeesManager;
-import fr.traqueur.ressourcefulbees.managers.RessourcefulBreedsManager;
-import fr.traqueur.ressourcefulbees.managers.RessourcefulToolsManager;
+import fr.traqueur.ressourcefulbees.managers.*;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.ServicePriority;
 
@@ -42,6 +36,7 @@ public final class RessourcefulBeesLikePlugin extends RessourcefulBeesLike {
         this.registerManager(new RessourcefulBeesManager(this), BeesManager.class);
         this.registerManager(new RessourcefulToolsManager(this), ToolsManager.class);
         this.registerManager(new RessourcefulBreedsManager(this), BreedsManager.class);
+        this.registerManager(new RessourcefulMutationsManager(this), MutationsManager.class);
 
         this.saveables.forEach(saveable -> {
             this.saveOrUpdateConfiguration(saveable.getFile(), saveable.getFile());

@@ -11,6 +11,7 @@ public enum BeeTypes implements BeeType {
         SAND_BEE("Sand Bee", Material.SAND),
         GRAVEL_BEE("Gravel Bee", Material.GRAVEL),
         WOOD_BEE("Wood Bee", Material.OAK_WOOD),
+        ANDESITE_BEE("Andesite Bee", Material.ANDESITE),
         ;
 
         private final String name;
