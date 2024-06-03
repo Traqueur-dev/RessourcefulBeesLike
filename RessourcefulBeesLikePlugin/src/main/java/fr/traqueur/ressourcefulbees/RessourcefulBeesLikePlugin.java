@@ -11,20 +11,18 @@ import fr.traqueur.ressourcefulbees.managers.*;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.ServicePriority;
 
-import java.util.HashSet;
-import java.util.NoSuchElementException;
-import java.util.Set;
+import java.util.*;
 
 
 public final class RessourcefulBeesLikePlugin extends RessourcefulBeesLike {
 
     private CommandManager commandManager;
-    private Set<Saveable> saveables;
+    private List<Saveable> saveables;
 
     @Override
     public void onLoad() {
         this.commandManager = new CommandManager(this);
-        this.saveables = new HashSet<>();
+        this.saveables = new ArrayList<>();
     }
 
     @Override
