@@ -9,7 +9,7 @@ import fr.traqueur.ressourcefulbees.api.models.BeeType;
 import fr.traqueur.ressourcefulbees.api.utils.BeeLogger;
 import fr.traqueur.ressourcefulbees.api.utils.ConfigKeys;
 import fr.traqueur.ressourcefulbees.api.utils.Keys;
-import fr.traqueur.ressourcefulbees.models.BeeTypes;
+import fr.traqueur.ressourcefulbees.models.RessourcefulBeeType;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Bee;
@@ -70,26 +70,11 @@ public class RessourcefulBeeTypeManager implements BeeTypeManager, Saveable {
             String type = (String) map.get(ConfigKeys.TYPE);
             String name = (String) map.get(ConfigKeys.NAME);
             Material food = Material.valueOf((String) map.get(ConfigKeys.FOOD));
-            this.beeTypes.put(type, new BeeType() {
-                @Override
-                public String getType() {
-                    return type;
-                }
-
-                @Override
-                public String getName() {
-                    return name;
-                }
-
-                @Override
-                public Material getFood() {
-                    return food;
-                }
-            });
+            this.beeTypes.put(type, new RessourcefulBeeType(type, name, food));
         });
 
-        if(this.beeTypes.isEmpty()) {
-            Stream.of(BeeTypes.values()).forEach(this::registerBeeType);
+        if(!this.beeTypes.containsKey("normal_bee")) {
+            this.beeTypes.put("normal_bee", new RessourcefulBeeType("normal_bee", "Normal Bee", Material.POPPY));
         }
 
         BeeLogger.info("&aLoaded " + this.beeTypes.size() + " bee types.");

@@ -57,7 +57,7 @@ public class RessourcefulBeesManager implements BeesManager {
     public void spawnBee(Location location, BeeType type, boolean baby) {
 
         RessourcefulBeeEntity test = new RessourcefulBeeEntity(location.getWorld(), new ItemStack(type.getFood()));
-        test.setPos(location.getX(), location.getY() + 1, location.getZ());
+        test.setPos(location.getX(), location.getY() + 0.5, location.getZ());
         ((CraftWorld) location.getWorld()).getHandle().addFreshEntity(test);
 
         Bee bee = (Bee) test.getBukkitEntity();
