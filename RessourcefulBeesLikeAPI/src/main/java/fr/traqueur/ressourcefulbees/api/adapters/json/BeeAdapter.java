@@ -13,6 +13,7 @@ public class BeeAdapter extends TypeAdapter<Bee> {
 
     private static final String TYPE = "beetype";
     private static final String BABY = "baby";
+    private static final String NECTAR = "nectar";
 
     private final BeeTypeManager manager;
 
@@ -25,6 +26,7 @@ public class BeeAdapter extends TypeAdapter<Bee> {
         jsonWriter.beginObject();
         jsonWriter.name(TYPE).value(bee.getBeeType().getType());
         jsonWriter.name(BABY).value(bee.isBaby());
+        jsonWriter.name(NECTAR).value(bee.hasNectar());
         jsonWriter.endObject();
 
     }
@@ -33,20 +35,22 @@ public class BeeAdapter extends TypeAdapter<Bee> {
     public fr.traqueur.ressourcefulbees.api.models.Bee read(JsonReader jsonReader) throws IOException {
         BeeType type = null;
         boolean baby = false;
+        boolean nectar = false;
 
         jsonReader.beginObject();
         while (jsonReader.hasNext()) {
             switch (jsonReader.nextName()) {
                 case TYPE -> type = this.manager.getBeeType(jsonReader.nextString());
                 case BABY -> baby = jsonReader.nextBoolean();
+                case NECTAR -> nectar = jsonReader.nextBoolean();
             }
         }
         jsonReader.endObject();
 
-        return new Bee(type, baby);
+        return new Bee(type, baby, nectar);
     }
 
-    private record Bee(BeeType type, boolean baby) implements fr.traqueur.ressourcefulbees.api.models.Bee {
+    private record Bee(BeeType type, boolean baby, boolean nectar) implements fr.traqueur.ressourcefulbees.api.models.Bee {
         @Override
         public BeeType getBeeType() {
             return type;
@@ -55,6 +59,11 @@ public class BeeAdapter extends TypeAdapter<Bee> {
         @Override
         public boolean isBaby() {
             return baby;
+        }
+
+        @Override
+        public boolean hasNectar() {
+            return nectar;
         }
     }
 }

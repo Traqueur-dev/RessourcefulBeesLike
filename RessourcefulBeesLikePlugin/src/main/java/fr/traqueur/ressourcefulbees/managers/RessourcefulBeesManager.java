@@ -12,6 +12,7 @@ import fr.traqueur.ressourcefulbees.commands.BeeCommand;
 import fr.traqueur.ressourcefulbees.commands.api.CommandManager;
 import fr.traqueur.ressourcefulbees.listeners.BeeListener;
 import net.kyori.adventure.text.Component;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_20_R3.CraftWorld;
@@ -54,7 +55,7 @@ public class RessourcefulBeesManager implements BeesManager {
     }
 
 
-    public void spawnBee(Location location, BeeType type, boolean baby) {
+    public void spawnBee(Location location, BeeType type, boolean baby, boolean nectar) {
 
         RessourcefulBeeEntity test = new RessourcefulBeeEntity(location.getWorld(), new ItemStack(type.getFood()));
         test.setPos(location.getX(), location.getY() + 1, location.getZ());
@@ -70,6 +71,9 @@ public class RessourcefulBeesManager implements BeesManager {
         }
         if(baby) {
             bee.setBaby();
+        }
+        if (nectar) {
+            bee.setHasNectar(true);
         }
     }
 

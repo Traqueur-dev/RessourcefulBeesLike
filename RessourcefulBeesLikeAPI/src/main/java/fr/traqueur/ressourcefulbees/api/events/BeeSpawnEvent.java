@@ -1,5 +1,6 @@
 package fr.traqueur.ressourcefulbees.api.events;
 
+import fr.traqueur.ressourcefulbees.api.models.Bee;
 import fr.traqueur.ressourcefulbees.api.models.BeeType;
 import org.bukkit.Location;
 import org.bukkit.event.Cancellable;
@@ -24,11 +25,13 @@ public class BeeSpawnEvent extends Event implements Cancellable {
     private final BeeType type;
     private final Location location;
     private final boolean baby;
+    private final boolean nectar;
 
-    public BeeSpawnEvent(BeeType type, Location location, boolean baby) {
+    public BeeSpawnEvent(BeeType type, Location location, boolean baby, boolean nectar) {
         this.type = type;
         this.location = location;
         this.baby = baby;
+        this.nectar = nectar;
     }
 
     public BeeType getType() {
@@ -41,6 +44,10 @@ public class BeeSpawnEvent extends Event implements Cancellable {
 
     public boolean isBaby() {
         return baby;
+    }
+
+    public boolean hasNectar() {
+        return nectar;
     }
 
     @Override

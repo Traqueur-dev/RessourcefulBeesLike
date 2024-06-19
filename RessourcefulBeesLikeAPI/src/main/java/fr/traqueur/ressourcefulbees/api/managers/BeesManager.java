@@ -11,7 +11,7 @@ public interface BeesManager {
 
     boolean isBeeSpawnEgg(ItemStack item);
 
-    void spawnBee(Location location, BeeType type, boolean baby);
+    void spawnBee(Location location, BeeType type, boolean baby, boolean nectar);
 
     RessourcefulBeesLikeAPI getPlugin();
 }

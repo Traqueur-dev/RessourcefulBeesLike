@@ -48,7 +48,7 @@ public class BreedsListener implements Listener {
         if (beeBreedEvent.isCancelled()) {
             return;
         }
-        BeeSpawnEvent beeSpawnEvent = new BeeSpawnEvent(beeBreedEvent.getChildType(), mother.getLocation(), true);
+        BeeSpawnEvent beeSpawnEvent = new BeeSpawnEvent(beeBreedEvent.getChildType(), mother.getLocation(), true, false);
         Bukkit.getPluginManager().callEvent(beeSpawnEvent);
     }
 }

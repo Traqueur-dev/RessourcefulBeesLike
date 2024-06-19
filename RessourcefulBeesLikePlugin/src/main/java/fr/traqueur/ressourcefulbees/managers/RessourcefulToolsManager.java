@@ -80,20 +80,20 @@ public class RessourcefulToolsManager implements ToolsManager, Saveable {
         return bees.size() >= beeBoxMaxBees;
     }
 
-    public void addToBeeBox(ItemStack beeBox, org.bukkit.entity.Bee bee) {
+    public void addToBeeBox(ItemStack beeBox, org.bukkit.entity.Bee bukkitBee) {
         ItemMeta meta = beeBox.getItemMeta();
         PersistentDataContainer container = meta.getPersistentDataContainer();
         List<Bee> bees = container.getOrDefault(Keys.BEE_BOX_BEES, PersistentDataType.LIST.listTypeFrom(BeePersistentDataType.INSTANCE), new ArrayList<>());
         bees = new ArrayList<>(bees);
-        PersistentDataContainer beeContainer = bee.getPersistentDataContainer();
+        PersistentDataContainer beeContainer = bukkitBee.getPersistentDataContainer();
         BeeType BeeType = this.beeTypeManager.getBeeType("normal_bee");
         if(beeContainer.has(Keys.BEE)) {
             BeeType = beeContainer.get(Keys.BEE_TYPE, BeeTypePersistentDataType.INSTANCE);
         }
 
-        bees.add(new RessourcefulBee(BeeType, !bee.isAdult()));
+        bees.add(new RessourcefulBee(BeeType, !bukkitBee.isAdult(), bukkitBee.hasNectar()));
         container.set(Keys.BEE_BOX_BEES, PersistentDataType.LIST.listTypeFrom(BeePersistentDataType.INSTANCE), bees);
-        bee.remove();
+        bukkitBee.remove();
         beeBox.setItemMeta(meta);
         this.updateBeeBox(beeBox);
     }
@@ -120,7 +120,7 @@ public class RessourcefulToolsManager implements ToolsManager, Saveable {
                 if(bee == null) {
                     continue;
                 }
-                BeeSpawnEvent event = new BeeSpawnEvent(bee.getBeeType(), location, bee.isBaby());
+                BeeSpawnEvent event = new BeeSpawnEvent(bee.getBeeType(), location, bee.isBaby(), bee.hasNectar());
                 this.plugin.getServer().getPluginManager().callEvent(event);
             }
             container.set(Keys.BEE_BOX_BEES, PersistentDataType.LIST.listTypeFrom(BeePersistentDataType.INSTANCE), mutableBees);

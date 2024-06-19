@@ -6,4 +6,6 @@ public interface Bee {
 
     boolean isBaby();
 
+    boolean hasNectar();
+
 }

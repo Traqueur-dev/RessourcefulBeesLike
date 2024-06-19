@@ -73,13 +73,13 @@ public class BeeListener implements Listener {
             item.subtract();
         }
         BeeType bee = item.getItemMeta().getPersistentDataContainer().getOrDefault(Keys.BEE_TYPE, BeeTypePersistentDataType.INSTANCE, this.beeTypeManager.getBeeType("normal"));
-        BeeSpawnEvent beeSpawnEvent = new BeeSpawnEvent(bee,location, baby);
+        BeeSpawnEvent beeSpawnEvent = new BeeSpawnEvent(bee,location, baby, false);
         Bukkit.getPluginManager().callEvent(beeSpawnEvent);
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onSpawnBee(BeeSpawnEvent event) {
-        this.manager.spawnBee(event.getLocation(), event.getType(), event.isBaby());
+        this.manager.spawnBee(event.getLocation(), event.getType(), event.isBaby(), event.hasNectar());
     }
 
 }
