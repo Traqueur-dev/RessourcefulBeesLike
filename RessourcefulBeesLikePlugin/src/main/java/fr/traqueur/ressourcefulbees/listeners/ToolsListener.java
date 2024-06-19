@@ -75,7 +75,7 @@ public class ToolsListener implements Listener {
 
     }
 
-    @EventHandler(priority = EventPriority.LOWEST)
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onCatch(BeeCatchEvent event) {
         if(this.manager.isBeeBoxFull(event.getBeeBox())) {
             event.getPlayer().sendMessage(Component.text("Bee Box remplie!", NamedTextColor.RED));
@@ -85,7 +85,7 @@ public class ToolsListener implements Listener {
         this.manager.addToBeeBox(event.getBeeBox(), event.getBee());
     }
 
-    @EventHandler(priority = EventPriority.LOWEST)
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onRelease(BeeReleaseEvent event) {
         this.manager.releaseBee(event.getBeebox(), event.getLocation(), event.isAll());
     }

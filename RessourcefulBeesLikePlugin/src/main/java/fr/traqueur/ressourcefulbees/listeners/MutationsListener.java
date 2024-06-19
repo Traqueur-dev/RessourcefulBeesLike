@@ -14,6 +14,7 @@ import org.bukkit.entity.Bee;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 
 import java.util.NoSuchElementException;
@@ -58,7 +59,7 @@ public class MutationsListener implements Listener {
         } catch (NoSuchElementException ignored) {}
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onBeeMutation(BeeMutationEvent event) {
         this.mutationsManager.mutateBee(event.getLocation(), event.getChild());
         event.getBee().setHasNectar(false);

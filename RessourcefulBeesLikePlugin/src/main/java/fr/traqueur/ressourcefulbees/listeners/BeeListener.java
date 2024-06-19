@@ -15,6 +15,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
@@ -76,7 +77,7 @@ public class BeeListener implements Listener {
         Bukkit.getPluginManager().callEvent(beeSpawnEvent);
     }
 
-    @EventHandler(priority = org.bukkit.event.EventPriority.LOWEST)
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onSpawnBee(BeeSpawnEvent event) {
         this.manager.spawnBee(event.getLocation(), event.getType(), event.isBaby());
     }
