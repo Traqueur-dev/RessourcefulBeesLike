@@ -38,7 +38,7 @@ public final class RessourcefulBeesLikePlugin extends RessourcefulBeesLike {
 
         this.saveables.forEach(saveable -> {
             this.saveOrUpdateConfiguration(saveable.getFile(), saveable.getFile());
-            BeeLogger.info("Loaded " + saveable.getClass().getSimpleName() + " config file: " + saveable.getFile() + ".");
+            BeeLogger.info("&eLoaded " + saveable.getClass().getSimpleName() + " config file: " + saveable.getFile() + ".");
             saveable.loadData();
         });
 
@@ -70,6 +70,6 @@ public final class RessourcefulBeesLikePlugin extends RessourcefulBeesLike {
         }
 
         getServer().getServicesManager().register(clazz, instance, this, ServicePriority.Normal);
-        BeeLogger.info("Manager registered: " + clazz.getSimpleName());
+        BeeLogger.info("&eManager registered: " + clazz.getSimpleName());
     }
 }
