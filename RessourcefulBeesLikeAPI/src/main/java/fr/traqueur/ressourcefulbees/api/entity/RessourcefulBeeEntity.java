@@ -2,7 +2,6 @@ package fr.traqueur.ressourcefulbees.api.entity;
 
 import fr.traqueur.ressourcefulbees.api.entity.goals.*;
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -21,6 +20,7 @@ import net.minecraft.world.level.block.entity.BeehiveBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.phys.Vec3;
+import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.craftbukkit.v1_20_R3.CraftWorld;
 
@@ -217,6 +217,10 @@ public class RessourcefulBeeEntity extends Bee {
             this.navigation.setMaxVisitedNodesMultiplier(0.5F);
             this.navigation.moveTo(vec3d1.x, vec3d1.y, vec3d1.z, 1.0D);
         }
+    }
+
+    public org.bukkit.inventory.ItemStack getFood() {
+        return food;
     }
 
     public RessourcefulBeeGoToHiveGoal getGoToHiveGoal() {

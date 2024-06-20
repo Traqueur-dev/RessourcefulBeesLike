@@ -2,6 +2,7 @@ package fr.traqueur.ressourcefulbees.api.entity.goals;
 
 import fr.traqueur.ressourcefulbees.api.entity.RessourcefulBeeEntity;
 import fr.traqueur.ressourcefulbees.api.entity.RessourcefulBeeGoal;
+import fr.traqueur.ressourcefulbees.api.utils.BeeLogger;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
@@ -20,7 +21,7 @@ import java.util.function.Predicate;
 
 public class RessourcefulBeePollinateGoal extends RessourcefulBeeGoal {
 
-        private final Predicate<BlockState> VALID_POLLINATION_BLOCKS = (iblockdata) -> (!iblockdata.hasProperty(BlockStateProperties.WATERLOGGED) || !((Boolean) iblockdata.getValue(BlockStateProperties.WATERLOGGED))) && (iblockdata.is(BlockTags.FLOWERS) && (!iblockdata.is(Blocks.SUNFLOWER) || iblockdata.getValue(DoublePlantBlock.HALF) == DoubleBlockHalf.UPPER));
+        private final Predicate<BlockState> VALID_POLLINATION_BLOCKS;
         private int successfulPollinatingTicks;
         private int lastSoundPlayedTick;
         private boolean pollinating;
@@ -31,6 +32,9 @@ public class RessourcefulBeePollinateGoal extends RessourcefulBeeGoal {
         public RessourcefulBeePollinateGoal(RessourcefulBeeEntity bee) {
             super(bee);
             this.setFlags(EnumSet.of(Goal.Flag.MOVE));
+            VALID_POLLINATION_BLOCKS = (iblockdata) -> (!iblockdata.hasProperty(BlockStateProperties.WATERLOGGED)
+                    || !((Boolean) iblockdata.getValue(BlockStateProperties.WATERLOGGED)))
+                    &&  iblockdata.getBukkitMaterial() == bee.getFood().getType();
         }
         
         public boolean canBeeUse() {
