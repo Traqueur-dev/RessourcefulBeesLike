@@ -1,15 +1,14 @@
-package fr.traqueur.ressourcefulbees.api.entity.goals;
+package fr.traqueur.ressourcefulbees.entity.goals;
 
 import com.google.common.collect.Lists;
-import fr.traqueur.ressourcefulbees.api.entity.RessourcefulBeeEntity;
-import fr.traqueur.ressourcefulbees.api.entity.RessourcefulBeeGoal;
+import fr.traqueur.ressourcefulbees.entity.RessourcefulBeeEntity;
+import fr.traqueur.ressourcefulbees.entity.RessourcefulBeeGoal;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.level.pathfinder.Path;
 
 import javax.annotation.Nullable;
-import java.lang.reflect.Field;
 import java.util.EnumSet;
 import java.util.List;
 

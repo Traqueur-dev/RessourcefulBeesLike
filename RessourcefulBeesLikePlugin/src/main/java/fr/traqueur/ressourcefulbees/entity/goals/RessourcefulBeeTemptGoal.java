@@ -1,4 +1,4 @@
-package fr.traqueur.ressourcefulbees.api.entity.goals;
+package fr.traqueur.ressourcefulbees.entity.goals;
 
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.TemptGoal;

@@ -1,17 +1,12 @@
-package fr.traqueur.ressourcefulbees.api.entity.goals;
+package fr.traqueur.ressourcefulbees.entity.goals;
 
-import fr.traqueur.ressourcefulbees.api.entity.RessourcefulBeeEntity;
-import fr.traqueur.ressourcefulbees.api.entity.RessourcefulBeeGoal;
-import fr.traqueur.ressourcefulbees.api.utils.BeeLogger;
+import fr.traqueur.ressourcefulbees.entity.RessourcefulBeeEntity;
+import fr.traqueur.ressourcefulbees.entity.RessourcefulBeeGoal;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.ai.goal.Goal;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;

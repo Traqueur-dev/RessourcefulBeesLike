@@ -1,4 +1,4 @@
-package fr.traqueur.ressourcefulbees.api.entity;
+package fr.traqueur.ressourcefulbees.entity;
 
 import net.minecraft.world.entity.ai.goal.Goal;
 

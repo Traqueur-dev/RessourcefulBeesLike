@@ -1,6 +1,6 @@
-package fr.traqueur.ressourcefulbees.api.entity;
+package fr.traqueur.ressourcefulbees.entity;
 
-import fr.traqueur.ressourcefulbees.api.entity.goals.*;
+import fr.traqueur.ressourcefulbees.entity.goals.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
@@ -20,7 +20,6 @@ import net.minecraft.world.level.block.entity.BeehiveBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.phys.Vec3;
-import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.craftbukkit.v1_20_R3.CraftWorld;
 

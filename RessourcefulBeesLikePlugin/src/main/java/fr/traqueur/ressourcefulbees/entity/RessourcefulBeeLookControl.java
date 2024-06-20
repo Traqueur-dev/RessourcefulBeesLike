@@ -1,8 +1,6 @@
-package fr.traqueur.ressourcefulbees.api.entity;
+package fr.traqueur.ressourcefulbees.entity;
 
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.control.LookControl;
-import net.minecraft.world.entity.animal.Bee;
 
 public class RessourcefulBeeLookControl extends LookControl {
 

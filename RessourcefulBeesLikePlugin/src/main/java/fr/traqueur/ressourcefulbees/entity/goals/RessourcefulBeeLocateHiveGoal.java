@@ -1,7 +1,7 @@
-package fr.traqueur.ressourcefulbees.api.entity.goals;
+package fr.traqueur.ressourcefulbees.entity.goals;
 
-import fr.traqueur.ressourcefulbees.api.entity.RessourcefulBeeEntity;
-import fr.traqueur.ressourcefulbees.api.entity.RessourcefulBeeGoal;
+import fr.traqueur.ressourcefulbees.entity.RessourcefulBeeEntity;
+import fr.traqueur.ressourcefulbees.entity.RessourcefulBeeGoal;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.PoiTypeTags;
