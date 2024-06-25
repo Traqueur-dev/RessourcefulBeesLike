@@ -1,22 +1,15 @@
 beetypes:
-  - name: Dirt Bee
-    type: dirt_bee
-    food: DIRT
-  - name: Sand Bee
-    type: sand_bee
-    food: SAND
-  - name: Gravel Bee
-    type: gravel_bee
-    food: GRAVEL
-  - name: Bee
-    type: normal_bee
-    food: POPPY
-  - name: Wood Bee
-    type: wood_bee
-    food: OAK_WOOD
-  - name: Cobblestone Bee
-    type: cobblestone_bee
-    food: COBBLESTONE
-  - name: Andesite Bee
-    type: andesite_bee
-    food: ANDESITE
+    - type: dirt_bee
+      food: DIRT
+    - type: sand_bee
+      food: SAND
+    - type: gravel_bee
+      food: GRAVEL
+    - type: normal_bee
+      food: POPPY
+    - type: wood_bee
+      food: OAK_WOOD
+    - type: cobblestone_bee
+      food: COBBLESTONE
+    - type: andesite_bee
+      food: ANDESITE

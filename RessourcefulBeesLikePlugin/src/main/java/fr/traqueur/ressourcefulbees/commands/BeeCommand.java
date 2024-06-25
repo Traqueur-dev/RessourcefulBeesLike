@@ -1,5 +1,7 @@
 package fr.traqueur.ressourcefulbees.commands;
 
+import fr.traqueur.ressourcefulbees.LangKeys;
+import fr.traqueur.ressourcefulbees.api.lang.Formatter;
 import fr.traqueur.ressourcefulbees.api.managers.BeesManager;
 import fr.traqueur.ressourcefulbees.api.models.BeeType;
 import fr.traqueur.ressourcefulbees.api.utils.Permissions;
@@ -33,6 +35,6 @@ public class BeeCommand extends Command {
 
         ItemStack beeSpawnEgg = this.manager.generateBeeSpawnEgg(name);
         player.getInventory().addItem(beeSpawnEgg);
-        player.sendMessage(Component.text("Vous avez reçu un oeuf de l'abeille " + name.getName() + "!", NamedTextColor.GREEN));
+        player.sendMessage(Component.text(this.manager.getPlugin().translate(LangKeys.BEE_GIVE, Formatter.beetype(name)), NamedTextColor.GREEN));
     }
 }

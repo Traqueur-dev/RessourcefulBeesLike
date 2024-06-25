@@ -1,0 +1,10 @@
+sand_bee: "Abeille de Sable"
+cobblestone_bee: "Abeille de Cobblestone"
+gravel_bee: "Abeille de Gravier"
+dirt_bee: "Abeille de Terre"
+normal_bee: "Abeille"
+wood_bee: "Abeille de Bois"
+andesite_bee: "Abeille d'Andésite"
+
+bee_give: "Vous avez reçu une &beetype& !"
+bee_box_give: "Vous avez reçu une Boîte d'Abeille !"

@@ -48,7 +48,7 @@ public class RessourcefulBeesManager implements BeesManager {
         PersistentDataContainer container = meta.getPersistentDataContainer();
         container.set(Keys.BEE, PersistentDataType.BOOLEAN, true);
         container.set(Keys.BEE_TYPE, BeeTypePersistentDataType.INSTANCE, type);
-        meta.displayName(Component.text(type.getName() + " Spawn Egg"));
+        meta.displayName(Component.text(this.plugin.translate(type.getType()) + " Spawn Egg"));
         item.setItemMeta(meta);
         return item;
     }
@@ -65,7 +65,7 @@ public class RessourcefulBeesManager implements BeesManager {
         bee.getPersistentDataContainer().set(Keys.BEE_TYPE, BeeTypePersistentDataType.INSTANCE, type);
 
         if(!type.getType().equals("normal_bee")) {
-            bee.customName(Component.text(type.getName()));
+            bee.customName(Component.text(this.plugin.translate(type.getType())));
             bee.setCustomNameVisible(true);
         }
         if(baby) {

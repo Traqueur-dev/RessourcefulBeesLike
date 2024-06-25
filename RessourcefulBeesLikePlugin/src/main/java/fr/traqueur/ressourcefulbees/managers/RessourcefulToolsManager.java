@@ -145,9 +145,9 @@ public class RessourcefulToolsManager implements ToolsManager, Saveable {
             int size = bees.size();
 
             List<Component> lore = bees.stream()
-                    .collect(Collectors.groupingBy((e) -> e.getBeeType().getName(), Collectors.summingInt(e -> 1)))
+                    .collect(Collectors.groupingBy((e) -> e.getBeeType().getType(), Collectors.summingInt(e -> 1)))
                     .entrySet().stream()
-                    .map(entry -> Component.text(entry.getKey() + " x" + entry.getValue(), NamedTextColor.YELLOW))
+                    .map(entry -> Component.text(this.getPlugin().translate(entry.getKey()) + " x" + entry.getValue(), NamedTextColor.YELLOW))
                     .collect(Collectors.toList());
             lore.add(Component.empty());
             lore.add(Component.text("Total: " + size + " bees", NamedTextColor.GRAY));

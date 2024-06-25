@@ -1,5 +1,6 @@
 package fr.traqueur.ressourcefulbees.commands;
 
+import fr.traqueur.ressourcefulbees.LangKeys;
 import fr.traqueur.ressourcefulbees.api.managers.ToolsManager;
 import fr.traqueur.ressourcefulbees.api.utils.Permissions;
 import fr.traqueur.ressourcefulbees.commands.api.Command;
@@ -30,6 +31,6 @@ public class BeeToolsGiveCommand extends Command {
 
         ItemStack beeBox = this.manager.generateBeeBox();
         player.getInventory().addItem(beeBox);
-        player.sendMessage(Component.text("Vous avez reçu une bee box !", NamedTextColor.GREEN));
+        player.sendMessage(Component.text(this.manager.getPlugin().translate(LangKeys.BEE_BOX_GIVE), NamedTextColor.GREEN));
     }
 }

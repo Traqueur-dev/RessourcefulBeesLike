@@ -6,7 +6,5 @@ public interface BeeType {
 
     String getType();
 
-    String getName();
-
     Material getFood();
 }

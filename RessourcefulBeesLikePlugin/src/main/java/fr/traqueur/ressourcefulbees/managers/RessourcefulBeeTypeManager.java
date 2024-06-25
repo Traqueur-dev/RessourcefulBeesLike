@@ -31,8 +31,9 @@ public class RessourcefulBeeTypeManager implements BeeTypeManager, Saveable {
         this.beeTypes = new HashMap<>();
     }
 
-    public void registerBeeType(BeeType BeeType) {
-        this.beeTypes.put(BeeType.getType().toLowerCase(), BeeType);
+    public void registerBeeType(BeeType beeType) {
+        this.beeTypes.put(beeType.getType().toLowerCase(), beeType);
+        this.plugin.registerMessage(beeType::getType);
     }
 
     public BeeType getBeeType(String type) {
@@ -67,13 +68,12 @@ public class RessourcefulBeeTypeManager implements BeeTypeManager, Saveable {
 
         config.getMapList(ConfigKeys.BEETYPE).forEach(map -> {
             String type = (String) map.get(ConfigKeys.TYPE);
-            String name = (String) map.get(ConfigKeys.NAME);
             Material food = Material.valueOf((String) map.get(ConfigKeys.FOOD));
-            this.beeTypes.put(type, new RessourcefulBeeType(type, name, food));
+            this.registerBeeType(new RessourcefulBeeType(type, food));
         });
 
         if(!this.beeTypes.containsKey("normal_bee")) {
-            this.beeTypes.put("normal_bee", new RessourcefulBeeType("normal_bee", "Normal Bee", Material.POPPY));
+            this.registerBeeType(new RessourcefulBeeType("normal_bee", Material.POPPY));
         }
 
         BeeLogger.info("&aLoaded " + this.beeTypes.size() + " bee types.");
@@ -87,7 +87,6 @@ public class RessourcefulBeeTypeManager implements BeeTypeManager, Saveable {
                 .stream()
                 .map(beetype -> (Map<String, Object>) new HashMap<String, Object>() {{
                     put(ConfigKeys.TYPE, beetype.getType());
-                    put(ConfigKeys.NAME, beetype.getName());
                     put(ConfigKeys.FOOD, beetype.getFood().name());
                 }}).toList();
 

@@ -46,6 +46,15 @@ public abstract class RessourcefulBeesLike extends JavaPlugin implements Ressour
                 }
             }
 
+            Set<String> keys = config.getKeys(true);
+            for (String key : keys) {
+                if (!defaultKeys.contains(key)) {
+                    configUpdated = true;
+                    config.set(key, null);
+                }
+            }
+
+
             config.setDefaults(defConfig);
             config.options().copyDefaults(true);
 

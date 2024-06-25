@@ -1,0 +1,10 @@
+sand_bee: "Sand Bee"
+cobblestone_bee: "Cobblestone Bee"
+gravel_bee: "Gravel Bee"
+dirt_bee: "Dirt Bee"
+normal_bee: "Bee"
+wood_bee: "Wood Bee"
+andesite_bee: "Andesite Bee"
+
+bee_give: "You have received a &beetype& !"
+bee_box_give: "You have received a Bee Box !"

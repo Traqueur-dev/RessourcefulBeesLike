@@ -14,4 +14,6 @@ public class ConfigKeys {
     public static final String MUTATIONS = "mutations";
     public static final String PARENT = "parent";
     public static final String BLOCK = "block";
+    public static final String LANGUAGE = "languages";
+    public static final String USED_LANG = "used_lang";
 }
