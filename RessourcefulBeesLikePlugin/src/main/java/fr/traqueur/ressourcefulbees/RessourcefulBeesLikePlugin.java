@@ -11,6 +11,7 @@ import fr.traqueur.ressourcefulbees.api.utils.ConfigKeys;
 import fr.traqueur.ressourcefulbees.commands.api.CommandManager;
 import fr.traqueur.ressourcefulbees.commands.arguments.BeeTypeArgument;
 import fr.traqueur.ressourcefulbees.managers.*;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.ServicePriority;
@@ -56,24 +57,31 @@ public final class RessourcefulBeesLikePlugin extends RessourcefulBeesLike {
             saveable.loadData();
         });
 
-        this.saveOrUpdateConfiguration("languages" + File.separator + "languages.yml", "languages" + File.separator + "languages.yml");
-        YamlConfiguration langConfig = YamlConfiguration.loadConfiguration(new File(this.getDataFolder(), "languages" + File.separator + "languages.yml"));
-        langConfig.getMapList(ConfigKeys.LANGUAGE).forEach(map -> {
-            String key = (String) map.keySet().iterator().next();
-            String path = (String) map.get(key);
-            try {
-                this.registerLanguage(key, path);
-            } catch (NoSuchElementException e) {
-                BeeLogger.severe("&c" + e.getMessage());
+        Bukkit.getScheduler().scheduleSyncDelayedTask(this, () -> {
+            this.saveOrUpdateConfiguration("languages" + File.separator + "languages.yml", "languages" + File.separator + "languages.yml");
+            YamlConfiguration langConfig = YamlConfiguration.loadConfiguration(new File(this.getDataFolder(), "languages" + File.separator + "languages.yml"));
+            langConfig.getMapList(ConfigKeys.LANGUAGE).forEach(map -> {
+                String key = (String) map.keySet().iterator().next();
+                String path = (String) map.get(key);
+                try {
+                    this.registerLanguage(key, path);
+                } catch (NoSuchElementException e) {
+                    BeeLogger.severe("&c" + e.getMessage());
+                }
+
+            });
+            BeeLogger.info("&aLoaded languages files. (" + this.languages.size() + " languages)");
+            if(this.languages.isEmpty()) {
+                getServer().getPluginManager().disablePlugin(this);
+                throw new NoSuchElementException("No languages loaded.");
             }
 
-        });
-        BeeLogger.info("&aLoaded languages files. (" + this.languages.size() + " languages)");
-        this.lang = langConfig.getString(ConfigKeys.USED_LANG);
-        if(!this.languages.containsKey(this.lang)) {
-            getServer().getPluginManager().disablePlugin(this);
-            throw new NoSuchElementException("The language file " + this.lang + " does not exist.");
-        }
+            this.lang = langConfig.getString(ConfigKeys.USED_LANG);
+            if(!this.languages.containsKey(this.lang)) {
+                getServer().getPluginManager().disablePlugin(this);
+                throw new NoSuchElementException("The language file " + this.lang + " does not exist.");
+            }
+        }, 1L);
 
         BeeLogger.info("RessourcefulBees Plugin enabled successfully !");
     }
